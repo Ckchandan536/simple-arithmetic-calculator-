@@ -57,18 +57,21 @@
             }
             };
 
-            document.getElementById("div").onclick = function() {
+                document.getElementById("div").onclick = function() {
                 let num1 = document.getElementById("num1").value;
                 let num2 = document.getElementById("num2").value;
+
+                if (num1 == "") num1 = 0;
+                if (num2 == "") num2 = 0;
+
                 try {
-                if (num1 == "" || num2 == "") throw new Error("Invalid");
+                if (num2 == 0) throw new Error("Infinity");
                 // to convert text into number we use here parseInt
                 document.getElementById("result").innerHTML = parseInt(num1) / parseInt(num2);
                 } catch(e) {
-                    alert("Number is invalid");
-
-                } finally {
-            }
+                    alert("Invalid Input");
+                    document.getElementById("result").innerHTML = "";
+                }
             };
 
             
